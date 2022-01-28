@@ -42,6 +42,7 @@ function AuthenticatedApp() {
           position: 'absolute',
           top: '10px',
           right: '10px',
+          color:colors.base
         }}
       >
         {user.username}

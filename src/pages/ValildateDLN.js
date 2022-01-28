@@ -9,6 +9,7 @@ import InputDateForm from 'components/InputDateForm';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { LoadingButton, Loader, FieldsWrapper } from 'components/lib';
+import * as colors from '../styles/colors';
 toast.configure();
 
 const ValidateDln = () => {
@@ -172,7 +173,7 @@ const ValidateDln = () => {
   return (
     <div>
       <Meta title={pageTitle} />
-      <h1>{pageTitle}</h1>
+      <h1 style={{color:`${colors.base}`}}>{pageTitle}</h1>
       <form className="mt-3" onSubmit={handleSubmit}>
         <FieldsWrapper>
           <InputForm
