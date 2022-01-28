@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { config } from '../config';
 import Meta from 'components/Meta';
 import { client } from '../utils/apiClient';
@@ -162,6 +162,13 @@ const ValidateDln = () => {
     if (event.key === 'Backspace' && dob.length) setDob(dob.slice(0, -1));
   };
 
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, []);
   return (
     <div>
       <Meta title={pageTitle} />
@@ -169,6 +176,7 @@ const ValidateDln = () => {
       <form className="mt-3" onSubmit={handleSubmit}>
         <FieldsWrapper>
           <InputForm
+            inputRef={inputRef}
             type={'text'}
             placeholder={'Driving Licence Number'}
             value={dl}
