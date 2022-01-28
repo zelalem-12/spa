@@ -42,6 +42,7 @@ function AuthenticatedApp() {
           position: 'absolute',
           top: '10px',
           right: '10px',
+          color:colors.base
         }}
       >
         {user.username}
@@ -89,7 +90,7 @@ function NavLink(props) {
           margin: '5px 0',
           width: '100%',
           height: '100%',
-          color: colors.text,
+          color: colors.base,
           borderRadius: '2px',
           borderLeft: '5px solid transparent',
           ':hover,:focus': {
@@ -100,12 +101,12 @@ function NavLink(props) {
         },
         match
           ? {
-              borderLeft: `5px solid ${colors.indigo}`,
+            borderLeft: `5px solid ${colors.indigo}`,
+            background: colors.gray10,
+            ':hover,:focus': {
               background: colors.gray10,
-              ':hover,:focus': {
-                background: colors.gray10,
-              },
-            }
+            },
+          }
           : null,
       ]}
       {...props}

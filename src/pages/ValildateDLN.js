@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { config } from '../config';
 import Meta from 'components/Meta';
 import { client } from '../utils/apiClient';
@@ -9,6 +9,7 @@ import InputDateForm from 'components/InputDateForm';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { LoadingButton, Loader, FieldsWrapper } from 'components/lib';
+import * as colors from '../styles/colors';
 toast.configure();
 
 const ValidateDln = () => {
@@ -162,13 +163,21 @@ const ValidateDln = () => {
     if (event.key === 'Backspace' && dob.length) setDob(dob.slice(0, -1));
   };
 
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, []);
   return (
     <div>
       <Meta title={pageTitle} />
-      <h1>{pageTitle}</h1>
+      <h1 style={{color:`${colors.base}`}}>{pageTitle}</h1>
       <form className="mt-3" onSubmit={handleSubmit}>
         <FieldsWrapper>
           <InputForm
+            inputRef={inputRef}
             type={'text'}
             placeholder={'Driving Licence Number'}
             value={dl}
