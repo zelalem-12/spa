@@ -1,0 +1,84 @@
+name: Production Build
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+jobs:
+  build-prod:
+    if: ${{ github.event_name == 'push' }}
+    runs-on: ubuntu-20.04
+
+    strategy:
+      matrix:
+        node-version: [14.15.5]
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.ref }}
+
+      - name: Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: npm install
+        run: npm ci
+
+      - name: npm lint
+        run: npm run lint
+
+      - name: npm build
+        run: npm run build
+        env:
+          REACT_APP_ENV: production
+
+      - name: Deploy to S3
+        uses: jakejarvis/s3-sync-action@master
+        with:
+          args: --acl public-read --follow-symlinks --delete
+        env:
+          AWS_S3_BUCKET: percayso-services-spa # ${{ secrets.PERCAYSO_SPA_BUCKET_NAME }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.NPD_DEV_CFN_DEPLOY_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.NPD_DEV_CFN_DEPLOY_KEY }}
+          AWS_REGION: eu-west-1
+          SOURCE_DIR: build
+
+      - name: Invalidate CloudFront
+        uses: chetan/invalidate-cloudfront-action@master
+        env:
+          DISTRIBUTION: E38SZUFMM3BWV5 # ${{ secrets.AWS_PRODUCTION_CLOUDFRONT_DISTRIBUTION }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.NPD_DEV_CFN_DEPLOY_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.NPD_DEV_CFN_DEPLOY_KEY }}
+          AWS_REGION: eu-west-1
+          PATHS: '/*'
+
+  build-pr:
+    if: ${{ github.event_name == 'pull_request' }}
+    runs-on: ubuntu-20.04
+
+    strategy:
+      matrix:
+        node-version: [ 14.15.5 ]
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.ref }}
+
+      - name: Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: npm install
+        run: npm ci
+
+      - name: npm lint
+        run: npm run lint
+
+      - name: Build Skipped!
+        run: echo Build skipped build for PR
