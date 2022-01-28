@@ -30,6 +30,7 @@ const Login = () => {
         <div className="form-group">
           <label>Enter password to continue</label>
           <input
+            maxlength="80"
             type="text"
             value={password}
             className="form-control"

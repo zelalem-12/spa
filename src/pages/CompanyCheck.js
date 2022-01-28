@@ -86,7 +86,12 @@ const CompanyCheck = () => {
     <div>
       <Meta title={pageTitle} />
       <h1>{pageTitle}</h1>
-      <SearchForm formLabel={'Company Name'} handleSubmit={handleSubmit} onSearchEntry={data => setSearch(data)} />
+      <SearchForm
+        maxlength="80"
+        formLabel={'Company Name'}
+        handleSubmit={handleSubmit}
+        onSearchEntry={data => setSearch(data)}
+      />
 
       {status.id && status.id === 'xx' && <Loader />}
 

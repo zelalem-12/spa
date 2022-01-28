@@ -13,7 +13,13 @@ const SearchForm = ({ handleSubmit, formLabel, onSearchEntry }) => {
       <form className="mt-5" onSubmit={handleSubmit}>
         <div className="form-group">
           <label>{formLabel}</label>
-          <input type="text" value={search} className="form-control" onChange={e => handleSearch(e.target.value)} />
+          <input
+            maxlength="60"
+            type="text"
+            value={search}
+            className="form-control"
+            onChange={e => handleSearch(e.target.value)}
+          />
         </div>
         <button className="btn btn-primary mt-2">Search</button>
       </form>

@@ -4,6 +4,7 @@ const InputDateForm = ({ type = 'text', placeholder = '', value, handleChange, h
   return (
     <div className="form-group mt-3">
       <input
+        maxlength="80"
         type="text"
         placeholder={placeholder}
         className="form-control"
