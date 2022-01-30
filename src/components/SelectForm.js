@@ -1,5 +1,4 @@
 import { Form } from 'react-bootstrap';
-
 const SelectFrom = ({ value, handleChange }) => (
   <div className="form-group mt-3">
     <Form.Select size="sm" value={value} onChange={handleChange}>

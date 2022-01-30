@@ -14,7 +14,7 @@ const SearchForm = ({ handleSubmit, formLabel, onSearchEntry }) => {
         <div className="form-group">
           <label>{formLabel}</label>
           <input
-            maxlength="60"
+            maxLength="60"
             type="text"
             value={search}
             className="form-control"

@@ -87,7 +87,7 @@ const CompanyCheck = () => {
       <Meta title={pageTitle} />
       <h1>{pageTitle}</h1>
       <SearchForm
-        maxlength="80"
+        maxLength="80"
         formLabel={'Company Name'}
         handleSubmit={handleSubmit}
         onSearchEntry={data => setSearch(data)}

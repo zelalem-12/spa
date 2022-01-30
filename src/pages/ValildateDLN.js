@@ -173,7 +173,7 @@ const ValidateDln = () => {
   return (
     <div>
       <Meta title={pageTitle} />
-      <h1 style={{color:`${colors.base}`}}>{pageTitle}</h1>
+      <h1 style={{ color: `${colors.base}` }}>{pageTitle}</h1>
       <form className="mt-3" onSubmit={handleSubmit}>
         <FieldsWrapper>
           <InputForm
@@ -222,9 +222,9 @@ const ValidateDln = () => {
           />
           <SelectFrom value={gender} handleChange={event => setGender(event.target.value)} />
         </FieldsWrapper>
-        <LoadingButton type="submit" className="btn btn-primary mt-2">
-          {loading ? <Loader /> : 'Submit'}
-        </LoadingButton>
+        <div class="col-md-12 text-center">
+          <LoadingButton type="submit">{loading ? <Loader /> : 'Submit'}</LoadingButton>
+        </div>
       </form>
 
       <TextAreaForm jsonValue={jsonResponse} cols={20} rows={10} formLabel="Response" readOnly={true} />

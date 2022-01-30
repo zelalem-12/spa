@@ -15,15 +15,27 @@ const FieldsWrapper = styled.div({
   marginBottom: '2rem',
 });
 
+const TextAreaLable = styled.label({
+  color: colors.base,
+});
+const CustomInput = styled.input({
+  backgroundColor: colors.base,
+});
 const TextAreaContainer = styled.div({
   display: 'flex',
   flexDirection: 'column',
 });
 const LoadingButton = styled.button({
+  textAlign: 'center',
+  fontWeight: 'bold',
+  color: colors.base,
+  fontSize: '0.8rem',
   minHeight: '38px',
   minWidth: '78px',
-  padding: '0',
-  textAlign: 'center',
+  padding: '1.5rem',
+  border: '0',
+  background: `url('Assets/Buttons/transparent-button-over.svg')`,
+  backgroundSize: '100% 100%',
 });
 
 const Loader = styled.div({
@@ -176,4 +188,6 @@ export {
   TextArea,
   TextAreaContainer,
   FieldsWrapper,
+  CustomInput,
+  TextAreaLable,
 };

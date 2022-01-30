@@ -36,8 +36,8 @@ function AnalyseName() {
         <Meta title={pageTitle} />
         <h1>{pageTitle}</h1>
         <form onSubmit={handleSearchClick}>
-          <Input maxlength="80" placeholder="Date of birth YYYY-MM-DD" id="dob" type="search" css={{ width: '50%' }} />
-          <Input maxlength="80" placeholder="Name" id="name" type="search" css={{ width: '50%' }} />
+          <Input maxLength="80" placeholder="Date of birth YYYY-MM-DD" id="dob" type="search" css={{ width: '50%' }} />
+          <Input maxLength="80" placeholder="Name" id="name" type="search" css={{ width: '50%' }} />
           <label htmlFor="name">
             <button
               type="submit"

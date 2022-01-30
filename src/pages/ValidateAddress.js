@@ -80,7 +80,7 @@ const ValidateAddress = () => {
             <div class="form-group">
               <label>Address Line One</label>
               <input
-                maxlength="60"
+                maxLength={'60'}
                 type="text"
                 value={address.line_1}
                 className="form-control"
@@ -91,7 +91,7 @@ const ValidateAddress = () => {
             <div className="form-group">
               <label>Address Line Two</label>
               <input
-                maxlength="60"
+                maxLength={'60'}
                 type="text"
                 value={address.line_2}
                 className="form-control"
@@ -102,7 +102,7 @@ const ValidateAddress = () => {
             <div class="form-group">
               <label>Address Line Three</label>
               <input
-                maxlength="60"
+                maxLength={'60'}
                 type="text"
                 value={address.line_3}
                 className="form-control"
@@ -113,7 +113,7 @@ const ValidateAddress = () => {
             <div class="form-group">
               <label>Post Town</label>
               <input
-                maxlength="60"
+                maxLength={'60'}
                 type="text"
                 value={address.post_town}
                 className="form-control"
@@ -124,7 +124,7 @@ const ValidateAddress = () => {
             <div class="form-group">
               <label>Postcode</label>
               <input
-                maxlength="60"
+                maxLength={'60'}
                 type="text"
                 value={address.postcode}
                 className="form-control"

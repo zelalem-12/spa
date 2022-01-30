@@ -42,7 +42,7 @@ function AuthenticatedApp() {
           position: 'absolute',
           top: '10px',
           right: '10px',
-          color:colors.base
+          color: colors.base,
         }}
       >
         {user.username}
@@ -101,12 +101,12 @@ function NavLink(props) {
         },
         match
           ? {
-            borderLeft: `5px solid ${colors.indigo}`,
-            background: colors.gray10,
-            ':hover,:focus': {
-              background: colors.gray10,
-            },
-          }
+              borderLeft: `5px solid ${colors.indigo}`,
+              ':hover,:focus': {
+                background: colors.gray10,
+                borderLeft: '5px solid transparent',
+              },
+            }
           : null,
       ]}
       {...props}

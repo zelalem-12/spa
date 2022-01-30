@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import Header from '../components/Header';
-import Meta from '../components/Meta';
+import Header from 'components/Header';
+import Meta from 'components/Meta';
 
 const Login = () => {
   // page content
@@ -30,7 +30,7 @@ const Login = () => {
         <div className="form-group">
           <label>Enter password to continue</label>
           <input
-            maxlength="80"
+            maxLength="80"
             type="text"
             value={password}
             className="form-control"
