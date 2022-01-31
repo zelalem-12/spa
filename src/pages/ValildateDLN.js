@@ -223,7 +223,7 @@ const ValidateDln = () => {
           />
           <SelectFrom value={gender} handleChange={event => setGender(event.target.value)} />
         </FieldsWrapper>
-        <div class="col-md-12 text-center">
+        <div className="col-md-12 text-center">
           <LoadingButton type="submit">{loading ? <Loader /> : 'Submit'}</LoadingButton>
         </div>
       </form>
