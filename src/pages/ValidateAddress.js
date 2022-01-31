@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import Meta from '../components/Meta';
 import SearchForm from '../components/SearchForm';
-import Loader from '../components/Loader';
+// import Loader from '../components/Loader';
 
 const ValidateAddress = () => {
   const { getAccessTokenSilently } = useAuth0();
@@ -58,13 +58,14 @@ const ValidateAddress = () => {
   return (
     <div>
       <Meta title={pageTitle} />
-      <h1>{pageTitle}</h1>
+      {/* <h1>{pageTitle}</h1> */}
       <SearchForm
-        formLabel={'Address'}
+        statusID={status.id}
+        placeholder={'Address'}
         handleSubmit={handleSubmit}
         onAddressSelected={address => setAddress(address)}
       />
-      {status.id && status.id === 'xx' && <Loader />}
+      {/* {status.id && status.id === 'xx' && <Loader />} */}
 
       {status.id && status.id !== 'xx' && (
         <div className="mt-3">

@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 
-import { Routes, Route, Link as RouterLink, useMatch } from 'react-router-dom';
+import { Routes, Route, Link as RouterLink } from 'react-router-dom';
 import { ErrorBoundary } from 'react-error-boundary';
 import { Button, ErrorMessage, FullPageErrorFallback } from 'components/lib';
 import * as mq from 'styles/media-queries';
@@ -40,11 +40,12 @@ function AuthenticatedApp() {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          [mq.small]:{
-            display: 'none'
-          }
-        }}>
-        <div >
+          [mq.small]: {
+            display: 'none',
+          },
+        }}
+      >
+        <div>
           <Nav />
         </div>
         <div
@@ -84,14 +85,13 @@ function AuthenticatedApp() {
 }
 
 function NavLink(props) {
-  const match = useMatch(props.to);
+  // const match = useMatch(props.to);
   return (
     <RouterLink
       css={[
         {
           padding: '0px 6px',
-
-        }
+        },
         //   {
         //     display: 'block',
         //     padding: '8px 15px 8px 10px',
@@ -135,7 +135,6 @@ function Nav() {
         [mq.small]: {
           // position: 'static',
           // top: 'auto',
-         
         },
       }}
     >
@@ -145,21 +144,22 @@ function Nav() {
           justifyContent: 'space-between',
           listStyle: 'none',
           padding: '0px',
-
         }}
       >
-
         <NavLink to="/">
-          <span css={{
-            color: colors.base,
-            fontSize: '1.5rem',
-            fontWeight: '600',
-            [mq.small]: {
-              fontSize: '0.8rem',
-            }
-          }}>
+          <span
+            css={{
+              color: colors.base,
+              fontSize: '1.5rem',
+              fontWeight: '600',
+              [mq.small]: {
+                fontSize: '0.8rem',
+              },
+            }}
+          >
             Percayso
-          </span></NavLink>
+          </span>
+        </NavLink>
         <NavLink to="/validate-address">
           <img src="Assets/Icons/addressOVER.png" alt="Adress" />
         </NavLink>

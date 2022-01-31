@@ -4,7 +4,7 @@ import Meta from '../components/Meta';
 import SearchForm from '../components/SearchForm';
 import FormattedTable from '../components/Table';
 import Pagination from '../components/Pagination';
-import Loader from '../components/Loader';
+// import Loader from '../components/Loader';
 
 const CompanyCheck = () => {
   const { getAccessTokenSilently } = useAuth0();
@@ -85,15 +85,16 @@ const CompanyCheck = () => {
   return (
     <div>
       <Meta title={pageTitle} />
-      <h1>{pageTitle}</h1>
+      {/* <h1>{pageTitle}</h1> */}
       <SearchForm
         maxLength="80"
-        formLabel={'Company Name'}
+        placeholder={'Company Name'}
         handleSubmit={handleSubmit}
         onSearchEntry={data => setSearch(data)}
+        statusID={status.id}
       />
 
-      {status.id && status.id === 'xx' && <Loader />}
+      {/* {status.id && status.id === 'xx' && <Loader />} */}
 
       {company.length > 0 && (
         <div className="mt-3">

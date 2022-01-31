@@ -1,6 +1,6 @@
 import { useState } from 'react';
-
-const SearchForm = ({ handleSubmit, formLabel, onSearchEntry }) => {
+import { LoadingButton, Loader } from 'components/lib';
+const SearchForm = ({ handleSubmit, onSearchEntry, placeholder = '', statusID }) => {
   const [search, setSearch] = useState('');
 
   const handleSearch = criteria => {
@@ -11,17 +11,19 @@ const SearchForm = ({ handleSubmit, formLabel, onSearchEntry }) => {
   return (
     <>
       <form className="mt-5" onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label>{formLabel}</label>
+        <div className="form-group mt-3 border-0">
           <input
             maxLength="60"
             type="text"
             value={search}
             className="form-control"
+            placeholder={placeholder}
             onChange={e => handleSearch(e.target.value)}
           />
         </div>
-        <button className="btn btn-primary mt-2">Search</button>
+        <div className="col-md-12 text-center">
+          <LoadingButton type="submit">{statusID === 'xx' ? <Loader /> : 'Submit'}</LoadingButton>
+        </div>
       </form>
     </>
   );

@@ -1,4 +1,3 @@
-/** @jsxImportSource @emotion/react */
 import React, { useState, useRef, useEffect } from 'react';
 import { config } from '../config';
 import Meta from 'components/Meta';
@@ -10,7 +9,6 @@ import InputDateForm from 'components/InputDateForm';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { LoadingButton, Loader, FieldsWrapper } from 'components/lib';
-import * as colors from '../styles/colors';
 toast.configure();
 
 const ValidateDln = () => {
@@ -174,7 +172,7 @@ const ValidateDln = () => {
   return (
     <div>
       <Meta title={pageTitle} />
-      <h1 css={{ color: `${colors.base}` }}>{pageTitle}</h1>
+      {/* <h1 css={{ color: `${colors.base}` }}>{pageTitle}</h1> */}
       <form className="mt-3" onSubmit={handleSubmit}>
         <FieldsWrapper>
           <InputForm
