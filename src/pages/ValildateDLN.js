@@ -7,6 +7,7 @@ import TextAreaForm from 'components/textAreaForm';
 import SelectFrom from 'components/SelectForm';
 import InputDateForm from 'components/InputDateForm';
 import { toast } from 'react-toastify';
+import { getParsedDateInput } from 'utils/customDateParser';
 import 'react-toastify/dist/ReactToastify.css';
 import { LoadingButton, Loader, FieldsWrapper } from 'components/lib';
 toast.configure();
@@ -23,6 +24,7 @@ const ValidateDln = () => {
   const [gender, setGender] = useState('');
   const [loading, setLoading] = useState(false);
   const [jsonResponse, setJsonResponse] = useState('');
+  const [validDobDate, setValidDobDate] = useState('');
 
   const handleSubmit = async event => {
     event.preventDefault();
@@ -33,9 +35,7 @@ const ValidateDln = () => {
     } else {
       setLoading(true);
 
-      const dobDymFormat = dob ? dob.split('-').reverse().join('-') : '';
-      const name_dob_gender = [title, foreName, middleNames, surename, suffix, dobDymFormat, gender].join('|');
-      console.log({ dl, title, foreName, middleNames, surename, suffix, dob, gender, name_dob_gender });
+      const name_dob_gender = [title, foreName, middleNames, surename, suffix, validDobDate, gender].join('|');
 
       try {
         const {
@@ -62,104 +62,38 @@ const ValidateDln = () => {
     }
   };
 
-  const handleDateChange = event => {
-    const valueLength = dob.length;
-    const value = event.target.value;
-    const currentInput = value
-      .split('')
-      .filter(el => el !== '-')
-      .join('');
+  useEffect(() => {
+    if (dob && dob.length === 10 && dob[2] === '-' && dob[5] === '-') {
+      setValidDobDate(dob);
+    }
+  }, [dob]);
 
-    if (!isNaN(currentInput)) {
-      let allAllowed = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-      let ValidDigits = [];
-      if (valueLength === 0) {
-        ValidDigits = [0, 1, 2, 3];
-        if (ValidDigits.includes(parseInt(currentInput))) {
-          setDob(currentInput);
-        }
-      } else if (valueLength === 1) {
-        const firstNumChar = dob[0];
-        switch (firstNumChar) {
-          case '1':
-          case '2':
-            ValidDigits = allAllowed;
-            break;
-          case '0':
-            ValidDigits = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-            break;
-          case '3':
-            ValidDigits = [0, 1];
-            break;
-          default:
-            ValidDigits = [];
-        }
-        if (ValidDigits.includes(parseInt(currentInput[1]))) {
-          setDob(`${currentInput}-`);
-        }
-      } else if (valueLength === 3) {
-        ValidDigits = [0, 1];
-        if (ValidDigits.includes(parseInt(currentInput[2]))) {
-          setDob(value);
-        }
-      } else if (valueLength === 4) {
-        const forthNumChar = dob[3];
-        switch (forthNumChar) {
-          case '0':
-            ValidDigits = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-            break;
-          case '1':
-            ValidDigits = [0, 1, 2];
-            break;
-          default:
-            ValidDigits = [];
-        }
-        if (ValidDigits.includes(parseInt(currentInput[3]))) {
-          setDob(`${value}-`);
-        }
-      } else if (valueLength === 6) {
-        ValidDigits = [1, 2];
-        const sixthDigit = parseInt(currentInput[4]);
-        if (ValidDigits.includes(sixthDigit)) {
-          const autoDigit = sixthDigit === 1 ? 9 : 0;
-          setDob(`${value}${autoDigit}`);
-        }
-      } else if (valueLength === 8) {
-        const seventhNumChar = dob[7];
-        switch (seventhNumChar) {
-          case '9':
-            ValidDigits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-            break;
-          case '0':
-            ValidDigits = [0];
-            break;
-          default:
-            ValidDigits = [];
-        }
-        if (ValidDigits.includes(parseInt(currentInput[6]))) {
-          setDob(value);
-        }
-      } else if (valueLength === 9) {
-        const eightNumChar = dob[7];
-        switch (eightNumChar) {
-          case '9':
-            ValidDigits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-            break;
-          case '0':
-            ValidDigits = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-            break;
-          default:
-            ValidDigits = [];
-        }
-        if (ValidDigits.includes(parseInt(currentInput[7]))) {
-          setDob(value);
-        }
-      }
+  const handleDateChange = event => {
+    event.preventDefault();
+    const currentInput = event.target.value;
+    if (currentInput && dob.length < 10) {
+      const parsedValue = getParsedDateInput(dob, currentInput);
+      setDob(parsedValue);
     }
   };
 
-  const handleKeyEvent = event => {
-    if (event.key === 'Backspace' && dob.length) setDob(dob.slice(0, -1));
+  const handleKeyEvent = ({ key }) => {
+    if (key === 'Backspace' || key === 'Delete') setDob('');
+  };
+  const handleBlur = () => {
+    if (validDobDate) {
+      const [dd, mm, yyyy] = dob.split('-');
+      const stringDate = new Date([mm, dd, yyyy].join('-')).toDateString();
+      const [day, month, date, year] = stringDate.split(' ');
+      const first = date[0] === '0' ? '' : date[0];
+      const second = parseInt(date[1]);
+      const append = second > 2 ? 'th' : second === 2 ? 'nd' : 'st';
+      const formatedDte = first ? first + second + append : second + append;
+      setDob([day, month, formatedDte, year].join(' '));
+    } else setDob('Invalid Date');
+  };
+  const focusHandle = () => {
+    setDob(validDobDate);
   };
 
   const inputRef = useRef(null);
@@ -218,6 +152,8 @@ const ValidateDln = () => {
             value={dob}
             handleChange={handleDateChange}
             handleKeyEvent={handleKeyEvent}
+            focusHandle={focusHandle}
+            handleBlur={handleBlur}
           />
           <SelectFrom value={gender} handleChange={event => setGender(event.target.value)} />
         </FieldsWrapper>

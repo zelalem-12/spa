@@ -1,6 +1,6 @@
 import React from 'react';
 import { CustomInput } from 'components/lib';
-const InputDateForm = ({ type = 'text', placeholder = '', value, handleChange, handleKeyEvent }) => {
+const InputDateForm = ({ placeholder = '', value, handleChange, handleKeyEvent, handleBlur, focusHandle }) => {
   return (
     <div >
       <CustomInput
@@ -9,8 +9,10 @@ const InputDateForm = ({ type = 'text', placeholder = '', value, handleChange, h
         placeholder={placeholder}
         className="form-control"
         value={value}
+        onBlur={handleBlur}
         onChange={handleChange}
         onKeyDown={handleKeyEvent}
+        onFocus={focusHandle}
       />
     </div>
   );
