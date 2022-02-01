@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 
-import { Routes, Route, Link as RouterLink } from 'react-router-dom';
+import { Routes, Route, Link as RouterLink, useMatch } from 'react-router-dom';
 import { ErrorBoundary } from 'react-error-boundary';
 import { Button, ErrorMessage, FullPageErrorFallback } from 'components/lib';
 import * as mq from 'styles/media-queries';
@@ -85,12 +85,16 @@ function AuthenticatedApp() {
 }
 
 function NavLink(props) {
-  // const match = useMatch(props.to);
+  const match = useMatch(props.to);
   return (
     <RouterLink
       css={[
         {
           padding: '0px 6px',
+          // ':hover,:focus': {
+          //   borderBottom: `2px solid ${colors.base}`,
+          //   textDecoration: 'none',
+          // },
         },
         //   {
         //     display: 'block',
@@ -107,15 +111,15 @@ function NavLink(props) {
         //       background: colors.gray10,
         //     },
         //   },
-        //   match
-        //     ? {
-        //       borderLeft: `5px solid ${colors.indigo}`,
-        //       ':hover,:focus': {
-        //         background: colors.gray10,
-        //         borderLeft: '5px solid transparent',
-        //       },
-        //     }
-        //     : null,
+        match
+          ? {
+              borderBottom: `2px solid ${colors.base}`,
+              ':hover,:focus': {
+                // background: colors.gray10,
+                // border: '5px solid transparent',
+              },
+            }
+          : null,
       ]}
       {...props}
     />

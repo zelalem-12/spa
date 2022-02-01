@@ -2,7 +2,7 @@ import React from 'react';
 import { CustomInput } from 'components/lib';
 const InputDateForm = ({ type = 'text', placeholder = '', value, handleChange, handleKeyEvent }) => {
   return (
-    <div className="form-group mt-3">
+    <div >
       <CustomInput
         maxLength="80"
         type="text"
