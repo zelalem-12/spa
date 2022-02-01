@@ -27,7 +27,7 @@ const CustomInput = styled.input({
   border: 'none',
   borderRadius: '0px',
   marginBottom: '10px',
-  padding:'10px 10px',
+  padding:'11px 11px',
  
 
   '::placeholder': {
@@ -44,10 +44,9 @@ const LoadingButton = styled.button({
   textAlign: 'center',
   fontWeight: 'bold',
   color: colors.base,
-  fontSize: '0.8rem',
+  fontSize: '0.6rem',
   minHeight: '38px',
   minWidth: '78px',
-  padding: '1.5rem',
   border: '0',
   background: `url('Assets/Buttons/transparent-button-over.svg')`,
   backgroundSize: '100% 100%',

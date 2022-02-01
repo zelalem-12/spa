@@ -108,8 +108,9 @@ const ValidateDln = () => {
   return (
     <div css={{
       [mq.large]:{
-        maxWidth: '50%',
-        marginLeft: '25%',
+        maxWidth: '26%',
+        marginLeft: '37%',
+        marginTop:'5%'
       },
 
       [mq.small]: {

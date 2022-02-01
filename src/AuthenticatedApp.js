@@ -66,7 +66,6 @@ function AuthenticatedApp() {
         css={{
           margin: '0 auto',
           padding: '3em 0em',
-          maxWidth: '840px',
           [mq.small]: {
             gridTemplateColumns: '1fr',
             gridTemplateRows: 'auto',
@@ -90,8 +89,9 @@ function NavLink(props) {
     <RouterLink
       css={[
         {
-          padding: '0px 10px',
-          paddingTop: ' 10px'
+          padding: '0px 4px',
+          paddingTop: ' 8px'
+
           // paddingTop: '10px'
           // ':hover,:focus': {
           //   borderBottom: `2px solid ${colors.base}`,
@@ -159,8 +159,9 @@ function Nav() {
           <span
             css={{
               color: colors.base,
-              fontSize: '2.2rem',
+              fontSize: '1.8rem',
               fontWeight: '800',
+              paddingRight:'0.4rem',
               // marginLeft: '1rem',
               // lineHeight:'none',
               [mq.small]: {
@@ -172,20 +173,20 @@ function Nav() {
           </span>
         </NavLink>
         <NavLink to="/validate-address">
-          <img src="Assets/Icons/addressOVER.png" alt="Adress"  css = {{marginTop:'1rem'}}/>
+          <img src="Assets/Icons/addressUP.png" alt="Adress"  css = {{marginTop:'.7rem'}}/>
         </NavLink>
 
         <NavLink to="/officer-check">
-          <img src="Assets/Icons/companyOVER.png" alt="officer-check" css = {{marginTop:'1rem'}} />
+          <img src="Assets/Icons/companyUP.png" alt="officer-check" css = {{marginTop:'0.7rem'}} />
         </NavLink>
         {/* <NavLink to="/analyse-name">
           <img src="Assets/Icons/companyOVER.png" alt="BigCo Inc. logo" />
         </NavLink> */}
         <NavLink to="/validate-dln">
-          <img src="Assets/Icons/drivinglicenceOVER.png" alt="validate-dln" css = {{marginTop:'1rem'}} />
+          <img src="Assets/Icons/drivinglicenceUP.png" alt="validate-dln" css = {{marginTop:'0.7rem'}} />
         </NavLink>
         <NavLink to="/company-check">
-          <img src="Assets/Icons/nameOVER.png" alt="nameOver" css = {{marginTop:'1rem'}} />
+          <img src="Assets/Icons/nameUP.png" alt="nameOver" css = {{marginTop:'0.7rem'}} />
         </NavLink>
       </ul>
     </nav>
