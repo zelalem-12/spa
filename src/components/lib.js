@@ -14,6 +14,14 @@ const spin = keyframes({
 const FieldsWrapper = styled.div({
   marginBottom: '1rem',
 });
+const DriverData = styled.div({
+  display: 'block',
+  color: colors.base,
+  marginBottom: '2rem',
+});
+const ResponseContainer = styled.div({
+  width: '100%',
+});
 
 const CustomInput = styled.input({
   // backgroundColor: colors.base,
@@ -39,6 +47,7 @@ const CustomInput = styled.input({
 const TextAreaContainer = styled.div({
   display: 'flex',
   flexDirection: 'column',
+  marginBottom: '2rem',
 });
 const LoadingButton = styled.button({
   textAlign: 'center',
@@ -217,4 +226,6 @@ export {
   TextAreaContainer,
   FieldsWrapper,
   CustomInput,
+  DriverData,
+  ResponseContainer,
 };
