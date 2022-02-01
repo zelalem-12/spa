@@ -1,8 +1,9 @@
 import { CustomInput } from 'components/lib';
+import { collapseTextChangeRangesAcrossMultipleVersions } from 'typescript';
 const InputForm = ({ type = 'text', placeholder = '', value, handleChange, inputRef }) => {
   return (
-    <div className="form-group mt-3 border-0">
-      <CustomInput
+    <div >
+      <CustomInput 
         maxLength="80"
         ref={inputRef}
         type={type}

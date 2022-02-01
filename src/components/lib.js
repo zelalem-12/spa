@@ -19,11 +19,24 @@ const TextAreaLable = styled.label({
   color: colors.base,
 });
 const CustomInput = styled.input({
-  backgroundColor: colors.base,
+  // backgroundColor: colors.base,
+  background: 'rgba(255, 255, 255, 0.2)',
+  boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
+  backdropFilter: 'blur(5px)',
+  WebkitBackdropFilter: 'blur(5px)',
+  border: 'none',
+  borderRadius: '0px',
+  marginBottom: '10px',
+
+  '::placeholder': {
+    color: colors.gray10
+  }
+
 });
 const TextAreaContainer = styled.div({
   display: 'flex',
   flexDirection: 'column',
+  
 });
 const LoadingButton = styled.button({
   textAlign: 'center',
@@ -53,6 +66,11 @@ const TextArea = styled.textarea({
   maxWidth: '100%',
   minHeight: '300px',
   padding: '1rem',
+  background: 'rgba(255, 255, 255, 0.2)',
+  backdropFilter: 'blur(5px)',
+  WebkitBackdropFilter: 'blur(5px)',
+  border: 'none',
+  borderRadius: '0px',
 });
 const CircleButton = styled.button({
   borderRadius: '30px',
@@ -102,7 +120,7 @@ const inputStyles = {
   padding: '8px 12px',
 };
 
-const Input = styled.input({ borderRadius: '3px' }, inputStyles);
+const Input = styled.input({ borderRadius: '1px' }, inputStyles);
 
 const Dialog = styled(ReachDialog)({
   maxWidth: '450px',

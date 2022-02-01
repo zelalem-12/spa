@@ -175,7 +175,7 @@ const ValidateDln = () => {
     <div>
       <Meta title={pageTitle} />
       <h1 css={{ color: `${colors.base}` }}>{pageTitle}</h1>
-      <form className="mt-3" onSubmit={handleSubmit}>
+      <form  onSubmit={handleSubmit}>
         <FieldsWrapper>
           <InputForm
             inputRef={inputRef}
