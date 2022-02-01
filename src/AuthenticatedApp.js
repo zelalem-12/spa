@@ -40,7 +40,7 @@ function AuthenticatedApp() {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          [mq.small]:{
+          [mq.small]: {
             display: 'none'
           }
         }}>
@@ -90,8 +90,12 @@ function NavLink(props) {
       css={[
         {
           padding: '0px 6px',
+          // ':hover,:focus': {
+          //   borderBottom: `2px solid ${colors.base}`,
+          //   textDecoration: 'none',
+          // },
 
-        }
+        },
         //   {
         //     display: 'block',
         //     padding: '8px 15px 8px 10px',
@@ -107,15 +111,15 @@ function NavLink(props) {
         //       background: colors.gray10,
         //     },
         //   },
-        //   match
-        //     ? {
-        //       borderLeft: `5px solid ${colors.indigo}`,
-        //       ':hover,:focus': {
-        //         background: colors.gray10,
-        //         borderLeft: '5px solid transparent',
-        //       },
-        //     }
-        //     : null,
+           match
+            ? {
+              borderBottom: `2px solid ${colors.base}`,
+              ':hover,:focus': {
+                // background: colors.gray10,
+                // border: '5px solid transparent',
+             },
+            }
+            : null,
       ]}
       {...props}
     />
@@ -135,7 +139,7 @@ function Nav() {
         [mq.small]: {
           // position: 'static',
           // top: 'auto',
-         
+
         },
       }}
     >
