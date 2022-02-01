@@ -1,3 +1,4 @@
+/** @jsxImportSource @emotion/react */
 import React, { useState, useRef, useEffect } from 'react';
 import { config } from '../config';
 import Meta from 'components/Meta';
@@ -10,6 +11,7 @@ import { toast } from 'react-toastify';
 import { getParsedDateInput } from 'utils/customDateParser';
 import 'react-toastify/dist/ReactToastify.css';
 import { LoadingButton, Loader, FieldsWrapper } from 'components/lib';
+import * as mq from 'styles/media-queries';
 toast.configure();
 
 const ValidateDln = () => {
@@ -104,10 +106,19 @@ const ValidateDln = () => {
     }
   }, []);
   return (
-    <div>
+    <div css={{
+      [mq.large]:{
+        maxWidth: '50%',
+        marginLeft: '25%',
+      },
+
+      [mq.small]: {
+        minwidth: '90% !important',
+      },
+
+    }}>
       <Meta title={pageTitle} />
-      {/* <h1 css={{ color: `${colors.base}` }}>{pageTitle}</h1> */}
-      <form className="mt-3" onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <FieldsWrapper>
           <InputForm
             inputRef={inputRef}

@@ -27,6 +27,8 @@ const CustomInput = styled.input({
   border: 'none',
   borderRadius: '0px',
   marginBottom: '10px',
+  padding:'10px 10px',
+ 
 
   '::placeholder': {
     color: colors.gray10
@@ -71,6 +73,7 @@ const TextArea = styled.textarea({
   WebkitBackdropFilter: 'blur(5px)',
   border: 'none',
   borderRadius: '0px',
+
 });
 const CircleButton = styled.button({
   borderRadius: '30px',

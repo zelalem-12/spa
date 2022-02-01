@@ -92,10 +92,6 @@ function NavLink(props) {
         {
           padding: '0px 10px',
           paddingTop: ' 10px'
-
-          // ' .img': {
-          //   paddingTop:' 10px'
-          // }
           // paddingTop: '10px'
           // ':hover,:focus': {
           //   borderBottom: `2px solid ${colors.base}`,

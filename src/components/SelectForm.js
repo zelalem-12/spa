@@ -12,6 +12,7 @@ const SelectFrom = ({ value, handleChange }) => (
         border: 'none',
         borderRadius: '0px',
         marginBottom: '10px',
+        padding:'10px 10px',
         color: colors.gray10,
         opacity: '-moz-initial0.8',
         '::placeholder': {

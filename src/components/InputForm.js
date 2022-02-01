@@ -1,5 +1,4 @@
 import { CustomInput } from 'components/lib';
-import { collapseTextChangeRangesAcrossMultipleVersions } from 'typescript';
 const InputForm = ({ type = 'text', placeholder = '', value, handleChange, inputRef }) => {
   return (
     <div >
