@@ -90,7 +90,13 @@ function NavLink(props) {
     <RouterLink
       css={[
         {
-          padding: '0px 6px',
+          padding: '0px 10px',
+          paddingTop: ' 10px'
+
+          // ' .img': {
+          //   paddingTop:' 10px'
+          // }
+          // paddingTop: '10px'
           // ':hover,:focus': {
           //   borderBottom: `2px solid ${colors.base}`,
           //   textDecoration: 'none',
@@ -113,12 +119,12 @@ function NavLink(props) {
         //   },
         match
           ? {
-              borderBottom: `2px solid ${colors.base}`,
-              ':hover,:focus': {
-                // background: colors.gray10,
-                // border: '5px solid transparent',
-              },
-            }
+            borderBottom: `2px solid ${colors.base}`,
+            ':hover,:focus': {
+              // background: colors.gray10,
+              // border: '5px solid transparent',
+            },
+          }
           : null,
       ]}
       {...props}
@@ -130,6 +136,7 @@ function Nav() {
   return (
     <nav
       css={{
+        // marginTop: '0.1rem',
         // position: 'sticky',
         // top: '1px',
         // left: '1px',
@@ -148,37 +155,41 @@ function Nav() {
           justifyContent: 'space-between',
           listStyle: 'none',
           padding: '0px',
+          textAlign: 'center',
+          marginLeft: '1rem',
         }}
       >
         <NavLink to="/">
           <span
             css={{
               color: colors.base,
-              fontSize: '1.5rem',
-              fontWeight: '600',
+              fontSize: '2.2rem',
+              fontWeight: '800',
+              // marginLeft: '1rem',
+              // lineHeight:'none',
               [mq.small]: {
                 fontSize: '0.8rem',
               },
             }}
           >
-            Percayso
+            percayso
           </span>
         </NavLink>
         <NavLink to="/validate-address">
-          <img src="Assets/Icons/addressOVER.png" alt="Adress" />
+          <img src="Assets/Icons/addressOVER.png" alt="Adress"  css = {{marginTop:'1rem'}}/>
         </NavLink>
 
         <NavLink to="/officer-check">
-          <img src="Assets/Icons/companyOVER.png" alt="BigCo Inc. logo" />
+          <img src="Assets/Icons/companyOVER.png" alt="officer-check" css = {{marginTop:'1rem'}} />
         </NavLink>
         {/* <NavLink to="/analyse-name">
           <img src="Assets/Icons/companyOVER.png" alt="BigCo Inc. logo" />
         </NavLink> */}
         <NavLink to="/validate-dln">
-          <img src="Assets/Icons/drivinglicenceOVER.png" alt="BigCo Inc. logo" />
+          <img src="Assets/Icons/drivinglicenceOVER.png" alt="validate-dln" css = {{marginTop:'1rem'}} />
         </NavLink>
         <NavLink to="/company-check">
-          <img src="Assets/Icons/nameOVER.png" alt="BigCo Inc. logo" />
+          <img src="Assets/Icons/nameOVER.png" alt="nameOver" css = {{marginTop:'1rem'}} />
         </NavLink>
       </ul>
     </nav>
