@@ -12,12 +12,9 @@ const spin = keyframes({
   '100%': { transform: 'rotate(360deg)' },
 });
 const FieldsWrapper = styled.div({
-  marginBottom: '2rem',
+  marginBottom: '1rem',
 });
 
-const TextAreaLable = styled.label({
-  color: colors.base,
-});
 const CustomInput = styled.input({
   // backgroundColor: colors.base,
   background: 'rgba(255, 255, 255, 0.2)',
@@ -27,18 +24,21 @@ const CustomInput = styled.input({
   border: 'none',
   borderRadius: '0px',
   marginBottom: '10px',
-  padding:'11px 11px',
- 
+  padding: '11px 11px',
+
+  color: colors.base,
+  ':focus': {
+    background: 'rgba(255, 255, 255, 0.2)',
+    color: colors.base,
+  },
 
   '::placeholder': {
-    color: colors.gray10
-  }
-
+    color: colors.gray10,
+  },
 });
 const TextAreaContainer = styled.div({
   display: 'flex',
   flexDirection: 'column',
-  
 });
 const LoadingButton = styled.button({
   textAlign: 'center',
@@ -64,6 +64,7 @@ const Loader = styled.div({
 });
 
 const TextArea = styled.textarea({
+  marginTop: '1rem',
   maxWidth: '100%',
   minHeight: '300px',
   padding: '1rem',
@@ -72,7 +73,14 @@ const TextArea = styled.textarea({
   WebkitBackdropFilter: 'blur(5px)',
   border: 'none',
   borderRadius: '0px',
-
+  color: colors.base,
+  ':focus': {
+    background: 'rgba(255, 255, 255, 0.2)',
+    color: colors.base,
+  },
+  '::placeholder': {
+    color: colors.gray10,
+  },
 });
 const CircleButton = styled.button({
   borderRadius: '30px',
@@ -209,5 +217,4 @@ export {
   TextAreaContainer,
   FieldsWrapper,
   CustomInput,
-  TextAreaLable,
 };

@@ -90,7 +90,7 @@ function NavLink(props) {
       css={[
         {
           padding: '0px 4px',
-          paddingTop: ' 8px'
+          paddingTop: ' 8px',
 
           // paddingTop: '10px'
           // ':hover,:focus': {
@@ -115,12 +115,12 @@ function NavLink(props) {
         //   },
         match
           ? {
-            borderBottom: `2px solid ${colors.base}`,
-            ':hover,:focus': {
-              // background: colors.gray10,
-              // border: '5px solid transparent',
-            },
-          }
+              borderBottom: `2px solid ${colors.base}`,
+              ':hover,:focus': {
+                // background: colors.gray10,
+                // border: '5px solid transparent',
+              },
+            }
           : null,
       ]}
       {...props}
@@ -161,7 +161,7 @@ function Nav() {
               color: colors.base,
               fontSize: '1.8rem',
               fontWeight: '800',
-              paddingRight:'0.4rem',
+              paddingRight: '0.4rem',
               // marginLeft: '1rem',
               // lineHeight:'none',
               [mq.small]: {
@@ -173,20 +173,20 @@ function Nav() {
           </span>
         </NavLink>
         <NavLink to="/validate-address">
-          <img src="Assets/Icons/addressUP.png" alt="Adress"  css = {{marginTop:'.7rem'}}/>
+          <img src="Assets/Icons/addressUP.png" alt="Adress" css={{ marginTop: '.7rem' }} />
         </NavLink>
 
         <NavLink to="/officer-check">
-          <img src="Assets/Icons/companyUP.png" alt="officer-check" css = {{marginTop:'0.7rem'}} />
+          <img src="Assets/Icons/companyUP.png" alt="officer-check" css={{ marginTop: '0.7rem' }} />
         </NavLink>
         {/* <NavLink to="/analyse-name">
           <img src="Assets/Icons/companyOVER.png" alt="BigCo Inc. logo" />
         </NavLink> */}
         <NavLink to="/validate-dln">
-          <img src="Assets/Icons/drivinglicenceUP.png" alt="validate-dln" css = {{marginTop:'0.7rem'}} />
+          <img src="Assets/Icons/drivinglicenceUP.png" alt="validate-dln" css={{ marginTop: '0.7rem' }} />
         </NavLink>
         <NavLink to="/company-check">
-          <img src="Assets/Icons/nameUP.png" alt="nameOver" css = {{marginTop:'0.7rem'}} />
+          <img src="Assets/Icons/nameUP.png" alt="nameOver" css={{ marginTop: '0.7rem' }} />
         </NavLink>
       </ul>
     </nav>

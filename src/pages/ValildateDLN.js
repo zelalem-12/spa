@@ -106,18 +106,19 @@ const ValidateDln = () => {
     }
   }, []);
   return (
-    <div css={{
-      [mq.large]:{
-        maxWidth: '26%',
-        marginLeft: '37%',
-        marginTop:'5%'
-      },
+    <div
+      css={{
+        [mq.large]: {
+          maxWidth: '26%',
+          marginLeft: '37%',
+          marginTop: '5%',
+        },
 
-      [mq.small]: {
-        minwidth: '90% !important',
-      },
-
-    }}>
+        [mq.small]: {
+          minwidth: '90% !important',
+        },
+      }}
+    >
       <Meta title={pageTitle} />
       <form onSubmit={handleSubmit}>
         <FieldsWrapper>
@@ -174,7 +175,14 @@ const ValidateDln = () => {
         </div>
       </form>
 
-      <TextAreaForm jsonValue={jsonResponse} cols={20} rows={10} formLabel="Response" readOnly={true} />
+      <TextAreaForm
+        placeholder={'Your Result Here'.toUpperCase()}
+        jsonValue={jsonResponse}
+        cols={20}
+        rows={10}
+        formLabel="Response"
+        readOnly={true}
+      />
     </div>
   );
 };
