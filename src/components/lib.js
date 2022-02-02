@@ -31,8 +31,9 @@ const CustomInput = styled.input({
   WebkitBackdropFilter: 'blur(5px)',
   border: 'none',
   borderRadius: '0px',
-  marginBottom: '10px',
+  marginBottom: '16px',
   padding: '12px 12px',
+  borderRadius:'5px',
 
   color: colors.base,
   ':focus': {
