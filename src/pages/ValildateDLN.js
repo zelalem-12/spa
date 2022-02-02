@@ -31,8 +31,8 @@ const ValidateDln = () => {
 
   const handleSubmit = async event => {
     event.preventDefault();
-    if (!dl) {
-      toast.error('Driver licence is required field!', {
+    if (!dl || dl.length < 8 || dl.length > 18) {
+      toast.error('Driver licence is required to be between 8 & 18 characters!', {
         position: toast.POSITION.TOP_RIGHT,
       });
     } else {
@@ -129,7 +129,11 @@ const ValidateDln = () => {
           marginLeft: '37.4%',
           marginTop: '1%',
         },
-
+        [mq.medium]: {
+          maxWidth: '60%',
+          marginLeft: '20%',
+          marginTop: '1%',
+        },
         [mq.small]: {
           minwidth: '90% !important',
         },
@@ -178,7 +182,7 @@ const ValidateDln = () => {
             />
             <InputDateForm
               type={'text'}
-              placeholder={'DOB'}
+              placeholder={'Date of birth(DD-MM-YYYY)'}
               value={dob}
               handleChange={handleDateChange}
               handleKeyEvent={handleKeyEvent}
