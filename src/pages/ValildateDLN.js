@@ -27,7 +27,7 @@ const ValidateDln = () => {
   const [loading, setLoading] = useState(false);
   const [jsonResponse, setJsonResponse] = useState('');
   const [validDobDate, setValidDobDate] = useState('');
-  const [page, setPage] = useState(2);
+  const [page, setPage] = useState(1);
 
   const handleSubmit = async event => {
     event.preventDefault();
@@ -178,7 +178,7 @@ const ValidateDln = () => {
             />
             <InputDateForm
               type={'text'}
-              placeholder={'DOB'}
+              placeholder={'Date of birth(DD-MM-YYYY)'}
               value={dob}
               handleChange={handleDateChange}
               handleKeyEvent={handleKeyEvent}
