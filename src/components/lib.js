@@ -30,16 +30,15 @@ const CustomInput = styled.input({
   backdropFilter: 'blur(5px)',
   WebkitBackdropFilter: 'blur(5px)',
   border: 'none',
-  borderRadius: '0px',
   marginBottom: '16px',
   padding: '12px 12px',
-  borderRadius:'5px',
+  borderRadius: '5px',
 
   color: colors.base,
   ':focus': {
     background: 'rgba(255, 255, 255, 0.2)',
     color: colors.base,
-    boxShadow: 'none'
+    boxShadow: 'none',
   },
 
   '::placeholder': {
@@ -55,9 +54,9 @@ const LoadingButton = styled.button({
   textAlign: 'center',
   fontWeight: 'bold',
   color: colors.base,
-  fontSize: '0.6rem',
-  minHeight: '38px',
-  minWidth: '78px',
+  fontSize: '0.8rem',
+  minHeight: '40px',
+  minWidth: '96px',
   border: '0',
   background: `url('Assets/Buttons/transparent-button-over.svg')`,
   backgroundSize: '100% 100%',

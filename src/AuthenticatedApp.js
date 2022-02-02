@@ -89,26 +89,26 @@ function NavLink(props) {
     <RouterLink
       css={[
         {
-          position: 'relative'
+          position: 'relative',
         },
         match
           ? {
-            '::after': {
-              content: `''`,
-              position: 'absolute',
-              width: '1rem',
-              height: '1rem',
-              left: '30%',
-              top: '0.25rem',
-              borderWidth: '0.5rem',
-              borderStyle: 'solid',
+              '::after': {
+                content: `''`,
+                position: 'absolute',
+                width: '1rem',
+                height: '1rem',
+                left: '30%',
+                top: '0.25rem',
+                borderWidth: '0.5rem',
+                borderStyle: 'solid',
 
-              borderLeftColor: 'transparent',
-              borderRightColor: 'transparent',
-              borderTopColor: 'transparent',
-              borderBottomColor: colors.base
-            },
-          }
+                borderLeftColor: 'transparent',
+                borderRightColor: 'transparent',
+                borderTopColor: 'transparent',
+                borderBottomColor: colors.base,
+              },
+            }
           : null,
       ]}
       {...props}
@@ -120,10 +120,7 @@ function Nav() {
   return (
     <nav
       css={{
-
-        [mq.small]: {
-
-        },
+        [mq.small]: {},
       }}
     >
       <ul
@@ -133,21 +130,19 @@ function Nav() {
           listStyle: 'none',
           padding: '0px',
           textAlign: 'center',
-          marginTop: '1.35rem'
+          marginTop: '1.35rem',
         }}
       >
-
-        <div css={{
-
-          marginLeft: '.55rem',
-          '& img': {
-            width: '1.4rem',
-            margin: '0 .59rem',
-            marginBottom: '3.5rem'
-          }
-
-        }}>
-
+        <div
+          css={{
+            marginLeft: '.55rem',
+            '& img': {
+              width: '1.4rem',
+              margin: '0 .59rem',
+              marginBottom: '3.5rem',
+            },
+          }}
+        >
           <NavLink to="/">
             <img src="Assets/Logos/logo-small.png" alt="Adress" css={{ minWidth: '8.55rem ', textAlign: 'center' }} />
           </NavLink>
@@ -168,7 +163,6 @@ function Nav() {
             <img src="Assets/Icons/nameUP.png" alt="nameOver" />
           </NavLink>
         </div>
-
       </ul>
     </nav>
   );

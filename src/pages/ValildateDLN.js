@@ -111,14 +111,14 @@ const ValidateDln = () => {
   const onCLickAnother = () => {
     setDl('');
     setTitle('');
-    setForeName();
-    setMiddleNames();
-    setSurename();
-    setSuffix();
-    setDob();
-    setGender();
-    setJsonResponse();
-    setValidDobDate();
+    setForeName('');
+    setMiddleNames('');
+    setSurename('');
+    setSuffix('');
+    setDob('');
+    setGender('');
+    setJsonResponse('');
+    setValidDobDate('');
     setPage(1);
   };
   return (
