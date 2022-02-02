@@ -89,38 +89,26 @@ function NavLink(props) {
     <RouterLink
       css={[
         {
-          padding: '0px 4px',
-          paddingTop: ' 8px',
-
-          // paddingTop: '10px'
-          // ':hover,:focus': {
-          //   borderBottom: `2px solid ${colors.base}`,
-          //   textDecoration: 'none',
-          // },
+          position: 'relative'
         },
-        //   {
-        //     display: 'block',
-        //     padding: '8px 15px 8px 10px',
-        //     margin: '5px 0',
-        //     width: '100%',
-        //     height: '100%',
-        //     color: colors.base,
-        //     borderRadius: '2px',
-        //     borderLeft: '5px solid transparent',
-        //     ':hover,:focus': {
-        //       color: colors.indigo,
-        //       textDecoration: 'none',
-        //       background: colors.gray10,
-        //     },
-        //   },
         match
           ? {
-              borderBottom: `2px solid ${colors.base}`,
-              ':hover,:focus': {
-                // background: colors.gray10,
-                // border: '5px solid transparent',
-              },
-            }
+            '::after': {
+              content: `''`,
+              position: 'absolute',
+              width: '1rem',
+              height: '1rem',
+              left: '30%',
+              top: '0.25rem',
+              borderWidth: '0.5rem',
+              borderStyle: 'solid',
+
+              borderLeftColor: 'transparent',
+              borderRightColor: 'transparent',
+              borderTopColor: 'transparent',
+              borderBottomColor: colors.base
+            },
+          }
           : null,
       ]}
       {...props}
@@ -132,16 +120,9 @@ function Nav() {
   return (
     <nav
       css={{
-        // marginTop: '0.1rem',
-        // position: 'sticky',
-        // top: '1px',
-        // left: '1px',
-        // padding: '1em 1.5em',
-        // border: `1px solid ${colors.gray10}`,
-        // borderRadius: '3px',
+
         [mq.small]: {
-          // position: 'static',
-          // top: 'auto',
+
         },
       }}
     >
@@ -152,42 +133,42 @@ function Nav() {
           listStyle: 'none',
           padding: '0px',
           textAlign: 'center',
-          marginLeft: '1rem',
+          marginTop: '1.35rem'
         }}
       >
-        <NavLink to="/">
-          <span
-            css={{
-              color: colors.base,
-              fontSize: '1.8rem',
-              fontWeight: '800',
-              paddingRight: '0.4rem',
-              // marginLeft: '1rem',
-              // lineHeight:'none',
-              [mq.small]: {
-                fontSize: '0.8rem',
-              },
-            }}
-          >
-            percayso
-          </span>
-        </NavLink>
-        <NavLink to="/validate-address">
-          <img src="Assets/Icons/addressUP.png" alt="Adress" css={{ marginTop: '.7rem' }} />
-        </NavLink>
 
-        <NavLink to="/officer-check">
-          <img src="Assets/Icons/companyUP.png" alt="officer-check" css={{ marginTop: '0.7rem' }} />
-        </NavLink>
-        {/* <NavLink to="/analyse-name">
+        <div css={{
+
+          marginLeft: '.55rem',
+          '& img': {
+            width: '1.4rem',
+            margin: '0 .6rem',
+            marginBottom: '3.5rem'
+          }
+
+        }}>
+
+          <NavLink to="/">
+            <img src="Assets/Logos/logo-small.png" alt="Adress" css={{ minWidth: '8.55rem ', textAlign: 'center' }} />
+          </NavLink>
+
+          <NavLink to="/validate-address">
+            <img src="Assets/Icons/addressUP.png" alt="Adress" />
+          </NavLink>
+          <NavLink to="/officer-check">
+            <img src="Assets/Icons/companyUP.png" alt="officer-check" />
+          </NavLink>
+          {/* <NavLink to="/analyse-name">
           <img src="Assets/Icons/companyOVER.png" alt="BigCo Inc. logo" />
         </NavLink> */}
-        <NavLink to="/validate-dln">
-          <img src="Assets/Icons/drivinglicenceUP.png" alt="validate-dln" css={{ marginTop: '0.7rem' }} />
-        </NavLink>
-        <NavLink to="/company-check">
-          <img src="Assets/Icons/nameUP.png" alt="nameOver" css={{ marginTop: '0.7rem' }} />
-        </NavLink>
+          <NavLink to="/validate-dln">
+            <img src="Assets/Icons/drivinglicenceUP.png" alt="validate-dln" />
+          </NavLink>
+          <NavLink to="/company-check">
+            <img src="Assets/Icons/nameUP.png" alt="nameOver" />
+          </NavLink>
+        </div>
+
       </ul>
     </nav>
   );
