@@ -11,7 +11,7 @@ const SelectFrom = ({ value, handleChange }) => {
           backdropFilter: 'blur(5px)',
           WebkitBackdropFilter: 'blur(5px)',
           border: 'none',
-          borderRadius: '0px',
+          borderRadius: '5px',
           marginBottom: '2px',
           padding: '12px 12px',
           width:'100%',
