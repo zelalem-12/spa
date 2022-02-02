@@ -20,13 +20,18 @@ const SelectFrom = ({ value, handleChange }) => {
           ':focus': {
             background: 'rgba(255, 255, 255, 0.2)',
             color: colors.base,
+            boxShadow: 'none'
           },
           '::placeholder': {
             color: colors.gray10,
           },
-          '& *': {
-            background: 'rgba(255, 255, 255, 0.2)',
-            color: colors.text,
+          '& option': {
+            color: colors.base,
+            background: 'rgb(178, 56, 107, 0.7)',
+
+            ':hover':{
+              boxShadow:' 0 0 10px 100px #222 inset'
+            }
           },
         }}
         value={value}

@@ -27,7 +27,7 @@ const ValidateDln = () => {
   const [loading, setLoading] = useState(false);
   const [jsonResponse, setJsonResponse] = useState('');
   const [validDobDate, setValidDobDate] = useState('');
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(2);
 
   const handleSubmit = async event => {
     event.preventDefault();
@@ -126,8 +126,8 @@ const ValidateDln = () => {
       css={{
         [mq.large]: {
           maxWidth: '26%',
-          marginLeft: '37%',
-          marginTop: '5%',
+          marginLeft: '37.4%',
+          marginTop: '1%',
         },
 
         [mq.small]: {

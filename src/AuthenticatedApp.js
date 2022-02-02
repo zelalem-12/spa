@@ -142,7 +142,7 @@ function Nav() {
           marginLeft: '.55rem',
           '& img': {
             width: '1.4rem',
-            margin: '0 .6rem',
+            margin: '0 .59rem',
             marginBottom: '3.5rem'
           }
 

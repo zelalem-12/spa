@@ -32,12 +32,13 @@ const CustomInput = styled.input({
   border: 'none',
   borderRadius: '0px',
   marginBottom: '10px',
-  padding: '11px 11px',
+  padding: '12px 12px',
 
   color: colors.base,
   ':focus': {
     background: 'rgba(255, 255, 255, 0.2)',
     color: colors.base,
+    boxShadow: 'none'
   },
 
   '::placeholder': {
