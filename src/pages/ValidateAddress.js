@@ -1,8 +1,10 @@
+/** @jsxImportSource @emotion/react */
 import { useState, useEffect } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import Meta from '../components/Meta';
 import SearchForm from '../components/SearchForm';
-import Loader from '../components/Loader';
+import * as mq from 'styles/media-queries';
+// import Loader from '../components/Loader';
 
 const ValidateAddress = () => {
   const { getAccessTokenSilently } = useAuth0();
@@ -56,15 +58,32 @@ const ValidateAddress = () => {
   );
 
   return (
-    <div>
+    <div 
+    css={{
+      [mq.large]: {
+        maxWidth: '26%',
+        marginLeft: '37.4%',
+        marginTop: '1%',
+      },
+      [mq.medium]: {
+        maxWidth: '60%',
+        marginLeft: '20%',
+        marginTop: '1%',
+      },
+      [mq.small]: {
+        minwidth: '90% !important',
+      },
+    }}
+    >
       <Meta title={pageTitle} />
-      <h1>{pageTitle}</h1>
+      {/* <h1>{pageTitle}</h1> */}
       <SearchForm
-        formLabel={'Address'}
+        statusID={status.id}
+        placeholder={'Address'}
         handleSubmit={handleSubmit}
         onAddressSelected={address => setAddress(address)}
       />
-      {status.id && status.id === 'xx' && <Loader />}
+      {/* {status.id && status.id === 'xx' && <Loader />} */}
 
       {status.id && status.id !== 'xx' && (
         <div className="mt-3">
@@ -80,6 +99,7 @@ const ValidateAddress = () => {
             <div class="form-group">
               <label>Address Line One</label>
               <input
+                maxLength={'60'}
                 type="text"
                 value={address.line_1}
                 className="form-control"
@@ -90,6 +110,7 @@ const ValidateAddress = () => {
             <div className="form-group">
               <label>Address Line Two</label>
               <input
+                maxLength={'60'}
                 type="text"
                 value={address.line_2}
                 className="form-control"
@@ -100,6 +121,7 @@ const ValidateAddress = () => {
             <div class="form-group">
               <label>Address Line Three</label>
               <input
+                maxLength={'60'}
                 type="text"
                 value={address.line_3}
                 className="form-control"
@@ -110,6 +132,7 @@ const ValidateAddress = () => {
             <div class="form-group">
               <label>Post Town</label>
               <input
+                maxLength={'60'}
                 type="text"
                 value={address.post_town}
                 className="form-control"
@@ -120,6 +143,7 @@ const ValidateAddress = () => {
             <div class="form-group">
               <label>Postcode</label>
               <input
+                maxLength={'60'}
                 type="text"
                 value={address.postcode}
                 className="form-control"

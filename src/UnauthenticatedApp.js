@@ -36,11 +36,11 @@ function LoginForm({ onSubmit, submitButton }) {
     >
       <FormGroup>
         <label htmlFor="username">Username</label>
-        <Input id="username" />
+        <Input maxLength={'80'} id="username" />
       </FormGroup>
       <FormGroup>
         <label htmlFor="password">Password</label>
-        <Input id="password" type="password" />
+        <Input maxLength={'80'} id="password" type="password" />
       </FormGroup>
       <div>
         {cloneElement(

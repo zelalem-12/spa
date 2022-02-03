@@ -13,7 +13,7 @@ import NotFound from 'pages/NotFound';
 import CompanyCheck from 'pages/CompanyCheck';
 import OfficerCheck from 'pages/OfficerCheck';
 import ValidateAddress from 'pages/ValidateAddress';
-import AnalyseName from 'pages/AnalyseName';
+// import AnalyseName from 'pages/AnalyseName';
 import ValidateDlN from 'pages/ValildateDLN';
 
 function ErrorFallback({ error }) {
@@ -38,36 +38,41 @@ function AuthenticatedApp() {
       <div
         css={{
           display: 'flex',
+          justifyContent: 'space-between',
           alignItems: 'center',
-          position: 'absolute',
-          top: '10px',
-          right: '10px',
-        }}
-      >
-        {user.username}
-        <Button variant="secondary" css={{ marginLeft: '10px' }} onClick={logout}>
-          Logout
-        </Button>
-      </div>
-      <div
-        css={{
-          margin: '0 auto',
-          padding: '4em 2em',
-          maxWidth: '840px',
-          width: '100%',
-          display: 'grid',
-          gridGap: '1em',
-          gridTemplateColumns: '1fr 3fr',
           [mq.small]: {
-            gridTemplateColumns: '1fr',
-            gridTemplateRows: 'auto',
-            width: '100%',
+            display: 'none',
           },
         }}
       >
-        <div css={{ position: 'relative' }}>
+        <div>
           <Nav />
         </div>
+        <div
+          css={{
+            display: 'flex',
+            alignItems: 'center',
+            color: colors.base,
+          }}
+        >
+          {user.username}
+          <Button variant="secondary" css={{ marginRight: '1.5rem' }} onClick={logout}>
+            Logout
+          </Button>
+        </div>
+      </div>
+
+      <div
+        css={{
+          margin: '0 auto',
+          padding: '3em 0em',
+          [mq.small]: {
+            gridTemplateColumns: '1fr',
+            gridTemplateRows: 'auto',
+            width: '90%',
+          },
+        }}
+      >
         <main css={{ width: '100%' }}>
           <ErrorBoundary FallbackComponent={ErrorFallback}>
             <AppRoutes />
@@ -84,26 +89,24 @@ function NavLink(props) {
     <RouterLink
       css={[
         {
-          display: 'block',
-          padding: '8px 15px 8px 10px',
-          margin: '5px 0',
-          width: '100%',
-          height: '100%',
-          color: colors.text,
-          borderRadius: '2px',
-          borderLeft: '5px solid transparent',
-          ':hover,:focus': {
-            color: colors.indigo,
-            textDecoration: 'none',
-            background: colors.gray10,
-          },
+          position: 'relative',
         },
         match
           ? {
-              borderLeft: `5px solid ${colors.indigo}`,
-              background: colors.gray10,
-              ':hover,:focus': {
-                background: colors.gray10,
+              '::after': {
+                content: `''`,
+                position: 'absolute',
+                width: '1rem',
+                height: '1rem',
+                left: '30%',
+                top: '0.25rem',
+                borderWidth: '0.5rem',
+                borderStyle: 'solid',
+
+                borderLeftColor: 'transparent',
+                borderRightColor: 'transparent',
+                borderTopColor: 'transparent',
+                borderBottomColor: colors.base,
               },
             }
           : null,
@@ -117,41 +120,49 @@ function Nav() {
   return (
     <nav
       css={{
-        position: 'sticky',
-        top: '4px',
-        padding: '1em 1.5em',
-        border: `1px solid ${colors.gray10}`,
-        borderRadius: '3px',
-        [mq.small]: {
-          position: 'static',
-          top: 'auto',
-        },
+        [mq.small]: {},
       }}
     >
       <ul
         css={{
+          display: 'flex',
+          justifyContent: 'space-between',
           listStyle: 'none',
-          padding: '0',
+          padding: '0px',
+          textAlign: 'center',
+          marginTop: '1.35rem',
         }}
       >
-        <li>
-          <NavLink to="/">Home</NavLink>
-        </li>
-        <li>
-          <NavLink to="/company-check">Company Check</NavLink>
-        </li>
-        <li>
-          <NavLink to="/officer-check">Officer Check</NavLink>
-        </li>
-        <li>
-          <NavLink to="/validate-address">Validate Address</NavLink>
-        </li>
-        <li>
-          <NavLink to="/analyse-name">Analyse Name</NavLink>
-        </li>
-        <li>
-          <NavLink to="/validate-dln">Validate DLN</NavLink>
-        </li>
+        <div
+          css={{
+            marginLeft: '.55rem',
+            '& img': {
+              width: '1.4rem',
+              margin: '0 .59rem',
+              marginBottom: '3.5rem',
+            },
+          }}
+        >
+          <NavLink to="/">
+            <img src="Assets/Logos/logo-small.png" alt="Adress" css={{ minWidth: '8.55rem ', textAlign: 'center' }} />
+          </NavLink>
+
+          <NavLink to="/validate-address">
+            <img src="Assets/Icons/addressUP.png" alt="Adress" />
+          </NavLink>
+          <NavLink to="/officer-check">
+            <img src="Assets/Icons/companyUP.png" alt="officer-check" />
+          </NavLink>
+          {/* <NavLink to="/analyse-name">
+          <img src="Assets/Icons/companyOVER.png" alt="BigCo Inc. logo" />
+        </NavLink> */}
+          <NavLink to="/validate-dln">
+            <img src="Assets/Icons/drivinglicenceUP.png" alt="validate-dln" />
+          </NavLink>
+          <NavLink to="/company-check">
+            <img src="Assets/Icons/nameUP.png" alt="nameOver" />
+          </NavLink>
+        </div>
       </ul>
     </nav>
   );
@@ -165,7 +176,7 @@ function AppRoutes() {
       <Route path="/officer-check" exact element={<OfficerCheck />} />
       <Route path="/officer-check/:id" exact element={<OfficerCheck />} />
       <Route path="/validate-address" element={<ValidateAddress />} />
-      <Route path="/analyse-name" element={<AnalyseName />} />
+      {/* <Route path="/analyse-name" element={<AnalyseName />} /> */}
       <Route path="/validate-dln" element={<ValidateDlN />} />
       <Route path="*" element={<NotFound />} />
     </Routes>

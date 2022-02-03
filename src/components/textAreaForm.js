@@ -1,13 +1,17 @@
+/** @jsxImportSource @emotion/react */
 import { TextArea, TextAreaContainer } from './lib';
 
-const TextAreaForm = ({ cols, rows, formLabel, jsonValue, readOnly = false, style }) => {
+const TextAreaForm = ({ cols, rows, placeholder = '', jsonValue, readOnly = false, style }) => {
   return (
-    <form className="mt-5">
-      <TextAreaContainer className="form-group">
-        <label>
-          <strong>{formLabel}</strong>
-        </label>
-        <TextArea readOnly={readOnly} cols={cols} rows={rows} value={jsonValue} />
+    <form>
+      <TextAreaContainer>
+        <TextArea
+          placeholder={placeholder.toUpperCase()}
+          readOnly={readOnly}
+          cols={cols}
+          rows={rows}
+          value={jsonValue}
+        />
       </TextAreaContainer>
     </form>
   );

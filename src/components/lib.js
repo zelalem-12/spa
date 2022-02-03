@@ -12,18 +12,54 @@ const spin = keyframes({
   '100%': { transform: 'rotate(360deg)' },
 });
 const FieldsWrapper = styled.div({
+  marginBottom: '1rem',
+});
+const DriverData = styled.div({
+  display: 'block',
+  color: colors.base,
   marginBottom: '2rem',
 });
+const ResponseContainer = styled.div({
+  width: '100%',
+});
 
+const CustomInput = styled.input({
+  // backgroundColor: colors.base,
+  background: 'rgba(255, 255, 255, 0.2)',
+  boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
+  backdropFilter: 'blur(5px)',
+  WebkitBackdropFilter: 'blur(5px)',
+  border: 'none',
+  marginBottom: '16px',
+  padding: '12px 12px',
+  borderRadius: '5px',
+
+  color: colors.base,
+  ':focus': {
+    background: 'rgba(255, 255, 255, 0.2)',
+    color: colors.base,
+    boxShadow: 'none',
+  },
+
+  '::placeholder': {
+    color: colors.gray10,
+  },
+});
 const TextAreaContainer = styled.div({
   display: 'flex',
   flexDirection: 'column',
+  marginBottom: '2rem',
 });
 const LoadingButton = styled.button({
-  minHeight: '38px',
-  minWidth: '78px',
-  padding: '0',
   textAlign: 'center',
+  fontWeight: 'bold',
+  color: colors.base,
+  fontSize: '0.8rem',
+  minHeight: '40px',
+  minWidth: '96px',
+  border: '0',
+  background: `url('Assets/Buttons/transparent-button-over.svg')`,
+  backgroundSize: '100% 100%',
 });
 
 const Loader = styled.div({
@@ -38,9 +74,23 @@ const Loader = styled.div({
 });
 
 const TextArea = styled.textarea({
+  marginTop: '1rem',
   maxWidth: '100%',
   minHeight: '300px',
   padding: '1rem',
+  background: 'rgba(255, 255, 255, 0.2)',
+  backdropFilter: 'blur(5px)',
+  WebkitBackdropFilter: 'blur(5px)',
+  border: 'none',
+  borderRadius: '0px',
+  color: colors.base,
+  ':focus': {
+    background: 'rgba(255, 255, 255, 0.2)',
+    color: colors.base,
+  },
+  '::placeholder': {
+    color: colors.gray10,
+  },
 });
 const CircleButton = styled.button({
   borderRadius: '30px',
@@ -90,7 +140,7 @@ const inputStyles = {
   padding: '8px 12px',
 };
 
-const Input = styled.input({ borderRadius: '3px' }, inputStyles);
+const Input = styled.input({ borderRadius: '1px' }, inputStyles);
 
 const Dialog = styled(ReachDialog)({
   maxWidth: '450px',
@@ -176,4 +226,7 @@ export {
   TextArea,
   TextAreaContainer,
   FieldsWrapper,
+  CustomInput,
+  DriverData,
+  ResponseContainer,
 };

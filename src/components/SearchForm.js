@@ -1,6 +1,8 @@
+/** @jsxImportSource @emotion/react */
+import * as colors from 'styles/colors';
 import { useState } from 'react';
-
-const SearchForm = ({ handleSubmit, formLabel, onSearchEntry }) => {
+import { LoadingButton, Loader } from 'components/lib';
+const SearchForm = ({ handleSubmit, onSearchEntry, placeholder = '', statusID }) => {
   const [search, setSearch] = useState('');
 
   const handleSearch = criteria => {
@@ -10,12 +12,40 @@ const SearchForm = ({ handleSubmit, formLabel, onSearchEntry }) => {
 
   return (
     <>
-      <form className="mt-5" onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label>{formLabel}</label>
-          <input type="text" value={search} className="form-control" onChange={e => handleSearch(e.target.value)} />
+      <form onSubmit={handleSubmit}>
+        <div>
+          <input  css={{
+            background: 'rgba(255, 255, 255, 0.2)',
+            boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
+            backdropFilter: 'blur(5px)',
+            WebkitBackdropFilter: 'blur(5px)',
+            border: 'none',
+            marginBottom: '16px',
+            padding: '12px 12px',
+            borderRadius: '5px',
+
+            color: colors.base,
+            ':focus': {
+              background: 'rgba(255, 255, 255, 0.2)',
+              color: colors.base,
+              boxShadow: 'none',
+            },
+
+            '::placeholder': {
+              color: colors.gray10,
+            },
+          }}
+            maxLength="60"
+            type="text"
+            value={search}
+            className="form-control"
+            placeholder={placeholder}
+            onChange={e => handleSearch(e.target.value)}
+          />
         </div>
-        <button className="btn btn-primary mt-2">Search</button>
+        <div className="col-md-12 text-center">
+          <LoadingButton type="submit">{statusID === 'xx' ? <Loader /> : 'Submit'}</LoadingButton>
+        </div>
       </form>
     </>
   );

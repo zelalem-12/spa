@@ -4,7 +4,7 @@ import Meta from '../components/Meta';
 import SearchForm from '../components/SearchForm';
 import FormattedTable from '../components/Table';
 import Pagination from '../components/Pagination';
-import Loader from '../components/Loader';
+// import Loader from '../components/Loader';
 
 const OfficerCheck = props => {
   const { getAccessTokenSilently } = useAuth0();
@@ -87,9 +87,10 @@ const OfficerCheck = props => {
       <h1>{pageTitle}</h1>
       {!props.match.params.id && (
         <SearchForm
-          formLabel={'Officer Name'}
+          placeholder="Officer Name"
           handleSubmit={handleSubmit}
           onAddressSelected={data => setOfficers(data)}
+          statusID={status.id}
         />
       )}
 
@@ -106,7 +107,7 @@ const OfficerCheck = props => {
         </div>
       )}
 
-      {status.id && status.id === 'xx' && <Loader />}
+      {/* {status.id && status.id === 'xx' && <Loader />} */}
     </div>
   );
 };
