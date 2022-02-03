@@ -1,7 +1,9 @@
+/** @jsxImportSource @emotion/react */
 import { useState, useEffect } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import Meta from '../components/Meta';
 import SearchForm from '../components/SearchForm';
+import * as mq from 'styles/media-queries';
 // import Loader from '../components/Loader';
 
 const ValidateAddress = () => {
@@ -56,7 +58,23 @@ const ValidateAddress = () => {
   );
 
   return (
-    <div>
+    <div 
+    css={{
+      [mq.large]: {
+        maxWidth: '26%',
+        marginLeft: '37.4%',
+        marginTop: '1%',
+      },
+      [mq.medium]: {
+        maxWidth: '60%',
+        marginLeft: '20%',
+        marginTop: '1%',
+      },
+      [mq.small]: {
+        minwidth: '90% !important',
+      },
+    }}
+    >
       <Meta title={pageTitle} />
       {/* <h1>{pageTitle}</h1> */}
       <SearchForm
