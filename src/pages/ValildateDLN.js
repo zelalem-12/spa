@@ -27,14 +27,15 @@ const ValidateDln = () => {
   const [loading, setLoading] = useState(false);
   const [jsonResponse, setJsonResponse] = useState('');
   const [validDobDate, setValidDobDate] = useState('');
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(1)
+  const [errorMessage, setErrorMessage] = useState('');
+  const [messgeColor, setMessegeColor] = useState('')
 
   const handleSubmit = async event => {
     event.preventDefault();
     if (!dl || dl.length < 8 || dl.length > 18) {
-      toast.error('Driver licence is required to be between 8 & 18 characters!', {
-        position: toast.POSITION.TOP_RIGHT,
-      });
+      setErrorMessage('Driver licence is required to be between 8 & 18 characters!')
+      setMessegeColor('#F5BD6B')
     } else {
       setLoading(true);
 
@@ -46,22 +47,21 @@ const ValidateDln = () => {
         } = config;
         const apiResponse = await client(API_URL, { data: { dl, name_dob_gender } });
         setLoading(false);
-        const { result, message } = apiResponse;
-        if (result)
-          toast.success(message || 'Validation passed!', {
-            position: toast.POSITION.TOP_RIGHT,
-          });
-        else
-          toast.error(message || 'Validation Failed!', {
-            position: toast.POSITION.TOP_RIGHT,
-          });
+        const { result } = apiResponse;
+        if (result) {
+          setErrorMessage('Validation passed')
+          setMessegeColor('green')
+        }
+        else {
+          setErrorMessage('Validation Faild')
+          setMessegeColor('#F5BD6B')
+        }
         setJsonResponse(JSON.stringify(apiResponse, undefined, 4));
         setPage(2);
       } catch (err) {
         setLoading(false);
-        toast.error(err.message || 'Error While Fetching', {
-          position: toast.POSITION.TOP_RIGHT,
-        });
+        setErrorMessage('Error While Fetching')
+        setErrorMessage('#F5BD6B')
       }
     }
   };
@@ -119,6 +119,8 @@ const ValidateDln = () => {
     setGender('');
     setJsonResponse('');
     setValidDobDate('');
+    setErrorMessage('')
+    setMessegeColor('')
     setPage(1);
   };
   return (
@@ -152,12 +154,6 @@ const ValidateDln = () => {
             />
             <InputForm
               type={'text'}
-              placeholder={'Title'}
-              value={title}
-              handleChange={event => setTitle(event.target.value)}
-            />
-            <InputForm
-              type={'text'}
               placeholder={'Forename'}
               value={foreName}
               handleChange={event => setForeName(event.target.value)}
@@ -174,12 +170,6 @@ const ValidateDln = () => {
               value={surename}
               handleChange={event => setSurename(event.target.value)}
             />
-            <InputForm
-              type={'text'}
-              placeholder={'Suffix'}
-              value={suffix}
-              handleChange={event => setSuffix(event.target.value)}
-            />
             <InputDateForm
               type={'text'}
               placeholder={'Date of birth(DD-MM-YYYY)'}
@@ -193,6 +183,9 @@ const ValidateDln = () => {
           </FieldsWrapper>
           <div className="col-md-12 text-center">
             <LoadingButton type="submit">{loading ? <Loader /> : 'Submit'}</LoadingButton>
+          </div>
+          <div className="col-md-12 text-center" css={{ color: `${messgeColor}`, paddingTop: '30px' }}>
+            <span > {errorMessage}</span>
           </div>
         </form>
       )}
